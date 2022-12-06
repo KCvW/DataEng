@@ -128,4 +128,8 @@ time
 ### Entity relationship diagram
 
 The following ER diagram gives an impression about the connection of the tables
-<img src="https://github.com/KCvW/DataEng/blob/main/ER%20Staging%20Tables.jpeg">
+<figure>
+    <img src="https://github.com/KCvW/DataEng/blob/main/ER%20Staging%20Tables.png"
+         alt="ER Diagram">
+    <figcaption>ER Diagram to show Staging, Fact and Dimension Tables</figcaption>
+</figure>
