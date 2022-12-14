@@ -1,0 +1,9 @@
+IAM ARN:arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess
+Redshift: CBS&FSM@2022bmw
+S3: kaicvwbucket
+Bucket ARN: arn:aws:s3:::kaicvwbucket
+DB: postgreSQL-test
+PW: KaiCvW1977
+anfänglicher Name DB:KaiFirstDatabase
+
+redshift-cluster-1.c44sedqb1mme.us-east-1.redshift.amazonaws.com:5439/dev
