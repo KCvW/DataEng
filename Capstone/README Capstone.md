@@ -2,23 +2,21 @@
 
 ## Project Goal
 
-The key milestone of the project is to create a data warehouse that can be used for a broader range of analysis. Coming from this comprehensive data structure the aim is to provide a data basis focusing on immigartion and demographic data sets.
+The key milestone of the project is to create a data warehouse that can be used for a broader range of analysis. Coming from this comprehensive data structure the aim is to provide a data basis focusing on immigartion and demographic data sets, combined with data extracting a deeper understandnig of global city temperature.
 
-The objective of this project is to create an ETL pipeline for I94 immigration, global land temperatures and US demographics datasets to form an analytics database on immigration events. Typical questions are referring to these data sets.
+The objective of this project is to create an ETL pipeline for I94 immigration, global land temperatures and US demographics datasets to form an analytics database on immigration events. Generally the final usecases can answer questions related to immigration backgrounds for larger U.S. cities or even states.
 
-To fulfill this analytical approach the following steps are necessary:
+To fulfill this analytical approach the following steps are necessary - referring to the project instructions:
 
-* Define the scope of the project
-* Collect the relevant data
-* Explore the data for a deeper understanding
-* Ensure the access to the data
-* Align on a reliable data model
-* Run the ETL process to structure the data
-* Completion of project parameters
+* Step 1: Scope the Project and Gather Data
+* Step 2: Explore and Assess the Data
+* Step 3: Define the Data Model
+* Step 4: Run ETL to Model the Data
+* Step 5: Complete Project Write Up
 
 ___
 
-## Define the scope and collect the data
+## Step 1: Scope the Project and Gather Data
 
 ### Scope of the project
 
@@ -38,6 +36,9 @@ This capstone project will focus on three major datasets which will be used to c
     4. AWS S3: used for plain data storage
     5. AWS Redshift: used for data warehousing and data analysis
 
+Combing the datatsets and the tools the final goal of the project is to create a source-of-truth-database for questions related to U.S. immigration use cases.
+For instance, a potential use case is to develop a data vizualisation tool like dashboards, which can extract and display data based on certain requirements.
+
 ### Collect the relevant data
 
 The follwoing data sets are recommended and given to fulfil the project goal:
@@ -50,7 +51,7 @@ The follwoing data sets are recommended and given to fulfil the project goal:
 
 ___
 
-## Explore & access the datasets
+## Step 2: Explore & Assess the Data
 
 The following steps are necessary to explore and clean the data.
 
@@ -58,7 +59,7 @@ The following steps are necessary to explore and clean the data.
 
 1. To provide an overview of the datasets Pandas will be used for an exploratory approach
 2. To understand the data in a better way, it will be split into dimensional tables. If needed the attribute name will be changed
-3. To test the ETL logic in regards to the SAS datasets PySpark will be used
+3. PySpark will be used to test the ETL logic in regards to the SAS datasets
 
 ### Clean the datasets
 
@@ -68,7 +69,7 @@ The following steps are necessary to explore and clean the data.
 
 ___
 
-## Definition of the final data model
+## Step 3: Define the Data Model
 
 Referring to the project goals, it is necessary to define two different models.
 
@@ -77,7 +78,7 @@ Referring to the project goals, it is necessary to define two different models.
 
 ### Star Schema
 
-    [Conceptual Model - Star Schema](https://)
+  [Conceptual Model - Star Schema](https://github.com/KCvW/DataEng/blob/main/Capstone/Star%20Schema.png)
 
 ### Steps to build the data pipeline
 
@@ -97,13 +98,13 @@ Referring to the project goals, it is necessary to define two different models.
 
 ___
 
-## Run ETL process - structure data
+## Step 4: Run ETL to Model the Data
 
 To structure the data it is necessary to focus on several steps which are all related to the ETL process.
 
 ### Create the data model
 
-All steps are mention in [xyz.ipynb](https://)
+All steps are mention in [Capstone Project Master.ipynb](https://github.com/KCvW/DataEng/blob/main/Capstone/Capstone%20Project%20Master.ipynb)
 
 ### Check the data quality
 
@@ -112,16 +113,16 @@ These checks include:
 * After running the ETL process none of the tables should be blank
 * The data schema of each dimensional tables should fit to the data model
 
-For further information please refer to [Check Data Quality.ipynb](https://)
+For further information please refer to [Check Data Quality.ipynb](https://github.com/KCvW/DataEng/blob/main/Capstone/Check%20Data%20Quality.ipynb)
 
 ### Data structure
 
 The following images provide an overview of the data structure:
-[Data Structure & Model](https://)
+[Data Structure & Model](https://github.com/KCvW/DataEng/blob/main/Capstone/Data%20Dictionary.png)
 
 ___
 
-## Completion of project parameters
+## Step 5: Complete Project Write Up  
 
 This section lists all relevant parameters which are used to fulfil the project goals.
 
@@ -133,14 +134,15 @@ This section lists all relevant parameters which are used to fulfil the project 
 
 ### Update Frequency of the Data
 
-* `Immigration` and `Temperature` data tables should be updated on a *montly basis* - the raw data sets are created on a monthly basis as well
-* `Demographic` data has an *yearly update frequency* - as these sets are complex and costly to create
+* `Immigration` and `Temperature` data tables should be updated on a *monthly basis* - the raw data sets are created on a monthly basis as well
+* `Demographic` data has an *yearly update frequency* - these sets are more complex
 * An *append-only mode* for the updates is sufficient
 
 ### Design Patterns & Improvements
 
-* All data will be loaded and presented in dedicated dashboards - so the update frequency of the data should be on daily basis (e.g. 06:00am).
+* All data will be loaded and presented in dedicated dashboards - so the update frequency of the data should be on daily basis
   * To schedule a regular update cycle (ETL Pipeline) and to create a status report `Apache Airflow` can be used for automatisation reasons
+  * As the data has to be available on a daily basis, it is recommended to finalize the update process combined with data quality checks early in the morning (e.g. 05:00am)
 * More than 100++ users need access to the data base in a concurrent way
   * The data can be moved to `AWS Redshift` as the amount of connections can be handled with more accuracy. As this solution is located in the cloud, a cost/benefit calculation is recommended.
 * Data increase factor is close to 100
